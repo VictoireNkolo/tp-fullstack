@@ -4,6 +4,7 @@ namespace TP\Building\Tests\Unit;
 
 
 use Tests\TestCase;
+use TP\Building\Application\Command\Delete\DeleteBuildingHandler;
 use TP\Building\Application\Command\Save\SaveBuildingCommand;
 use TP\Building\Application\Command\Save\SaveBuildingHandler;
 use TP\Building\Application\Command\Save\SaveBuildingResponse;
@@ -46,7 +47,6 @@ class BuildingTest extends TestCase
     /**
      * @throws NotFoundBuildingException
      * @throws InvalidCommandException
-     * @throws NotFoundCompanyException
      */
     public function test_can_update_existing_building()
     {
@@ -63,13 +63,11 @@ class BuildingTest extends TestCase
 
     /**
      * @throws InvalidCommandException
-     * @throws NotFoundCompanyException
      */
     public function test_can_throw_not_found_building_exception()
     {
-        $building = $this->buildSUT();
+        $this->buildSUT();
         $saveBuildingCommand = BuildingCommandBuilder::asBuilder()
-            ->withCompanyId($building->companyId()->value())
             ->withId('5456')
             ->build();
 
@@ -81,7 +79,6 @@ class BuildingTest extends TestCase
     {
         $this->expectException(InvalidCommandException::class);
         BuildingCommandBuilder::asBuilder()
-            ->withCompanyId('')
             ->withName('')
             ->withAddress('')
             ->withCity('')

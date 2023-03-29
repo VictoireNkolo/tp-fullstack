@@ -3,6 +3,13 @@
 namespace TP\Building\Application\Command\Delete;
 
 
+use TP\Building\Application\Services\GetBuildingByIdService;
+use TP\Building\Domain\BuildingEventState;
+use TP\Building\Domain\BuildingRepository;
+use TP\Building\Domain\Exceptions\ErrorOnSaveBuildingException;
+use TP\Building\Domain\Exceptions\NotFoundBuildingException;
+use TP\Shared\VO\Id;
+
 final readonly class DeleteBuildingHandler
 {
 
