@@ -3,11 +3,11 @@
 namespace TP\Building\Tests\Unit;
 
 use TP\Building\Application\Command\Save\SaveBuildingCommand;
+use TP\Shared\Exceptions\InvalidCommandException;
 
 class BuildingCommandBuilder
 {
 
-    private string $companyId = '001';
     private string $name = 'Immeuble Test';
     private string $address = 'Rue 1465, Etoug-Ebe, Yaoundé';
     private string $postalCode = '01234';
@@ -25,7 +25,6 @@ class BuildingCommandBuilder
     public function build(): SaveBuildingCommand
     {
         return new SaveBuildingCommand(
-            $this->companyId,
             $this->name,
             $this->address,
             $this->postalCode,

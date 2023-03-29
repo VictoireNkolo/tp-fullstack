@@ -3,7 +3,6 @@
 namespace TP\Building\Tests\Unit;
 
 
-use Module\Shared\VO\PostalCode;
 use Tests\TestCase;
 use TP\Building\Application\Command\Save\SaveBuildingCommand;
 use TP\Building\Application\Command\Save\SaveBuildingHandler;
@@ -16,6 +15,7 @@ use TP\Shared\VO\Address;
 use TP\Shared\VO\City;
 use TP\Shared\VO\Id;
 use TP\Shared\VO\Name;
+use TP\Shared\VO\PostalCode;
 
 class BuildingTest extends TestCase
 {

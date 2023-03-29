@@ -3,7 +3,6 @@
 namespace TP\Building\Application\Command\Save;
 
 
-use Module\Shared\VO\PostalCode;
 use TP\Building\Application\Services\GetBuildingByIdService;
 use TP\Building\Domain\Building;
 use TP\Building\Domain\BuildingEventState;
@@ -14,6 +13,7 @@ use TP\Shared\VO\Address;
 use TP\Shared\VO\City;
 use TP\Shared\VO\Id;
 use TP\Shared\VO\Name;
+use TP\Shared\VO\PostalCode;
 
 final readonly class SaveBuildingHandler
 {

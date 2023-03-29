@@ -1,6 +1,6 @@
 <?php
 
-namespace Module\Shared\VO;
+namespace TP\Shared\VO;
 
 use InvalidArgumentException;
 

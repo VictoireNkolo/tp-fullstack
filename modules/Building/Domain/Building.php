@@ -3,11 +3,11 @@
 namespace TP\Building\Domain;
 
 
-use Module\Shared\VO\PostalCode;
 use TP\Shared\VO\Address;
 use TP\Shared\VO\City;
 use TP\Shared\VO\Id;
 use TP\Shared\VO\Name;
+use TP\Shared\VO\PostalCode;
 
 final class Building
 {
