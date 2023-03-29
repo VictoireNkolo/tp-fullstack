@@ -1,19 +1,18 @@
 <?php
 
-namespace Module\Tests\Features\Building;
+namespace TP\Building\Tests\Features;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Module\Domain\Building\BuildingEventState;
-use Module\Domain\Building\Exceptions\ErrorOnSaveBuildingException;
-use Module\Infrastructure\Building\Models\Building;
-use Module\Infrastructure\Building\Repositories\EloquentBuildingRepository;
-use Module\Infrastructure\Company\Models\Company;
-use Module\Shared\VO\Address;
-use Module\Shared\VO\City;
-use Module\Shared\VO\Id;
-use Module\Shared\VO\Name;
-use Module\Shared\VO\PostalCode;
 use Tests\TestCase;
+use TP\Building\Domain\BuildingEventState;
+use TP\Building\Domain\Exceptions\ErrorOnSaveBuildingException;
+use TP\Building\Infrastructure\Models\Building;
+use TP\Building\Infrastructure\Repositories\EloquentBuildingRepository;
+use TP\Shared\VO\Address;
+use TP\Shared\VO\City;
+use TP\Shared\VO\Id;
+use TP\Shared\VO\Name;
+use TP\Shared\VO\PostalCode;
 
 class BuildingRepositoryTest extends TestCase
 {
@@ -41,13 +40,11 @@ class BuildingRepositoryTest extends TestCase
      */
     public function test_can_save_building()
     {
-        $dbCompany = Company::factory()->create();
-        $building = \Module\Domain\Building\Building::create(
+        $building = \TP\Building\Domain\Building::create(
             new Name('Immeuble test'),
             new Address('Biyem-Assi, Yaoundé'),
             new PostalCode('12345'),
             new City('Yaoundé'),
-            new Id($dbCompany->uuid),
             null
         );
         $building->defineBuildingEventState(BuildingEventState::onSave);
@@ -63,8 +60,7 @@ class BuildingRepositoryTest extends TestCase
      */
     public function test_can_save_soft_deleted_building()
     {
-        $dbCompany = Company::factory()->create();
-        $dbBuilding = Building::factory()->create(['company_uuid' => $dbCompany->uuid]);
+        $dbBuilding = Building::factory()->create();
         $building = $dbBuilding->toDomain();
         $building->defineBuildingEventState(BuildingEventState::onDelete);
 

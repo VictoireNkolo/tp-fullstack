@@ -1,10 +1,9 @@
 <?php
 
-namespace Module\Infrastructure\Building;
+namespace TP\Building\Infrastructure;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Module\Domain\Building\BuildingRepository;
 use Module\Infrastructure\Building\Repositories\EloquentBuildingRepository;
 
 class BuildingServiceProvider extends ServiceProvider

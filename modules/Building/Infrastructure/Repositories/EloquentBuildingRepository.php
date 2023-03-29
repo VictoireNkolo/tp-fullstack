@@ -1,14 +1,12 @@
 <?php
 
-namespace Module\Infrastructure\Building\Repositories;
+namespace TP\Building\Infrastructure\Repositories;
 
-use Illuminate\Support\Facades\DB;
-use Module\Domain\Building\Building;
-use Module\Domain\Building\BuildingRepository;
-use Module\Domain\Building\BuildingEventState;
-use Module\Domain\Building\Exceptions\ErrorOnSaveBuildingException;
-use Module\Infrastructure\Building\Models\Building as BuildingModel;
-use Module\Shared\VO\Id;
+use TP\Building\Domain\Building;
+use TP\Building\Domain\BuildingRepository;
+use TP\Building\Domain\Exceptions\ErrorOnSaveBuildingException;
+use TP\Building\Infrastructure\Models\Building as BuildingModel;
+use TP\Shared\VO\Id;
 
 class EloquentBuildingRepository implements BuildingRepository
 {
