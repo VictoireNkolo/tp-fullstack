@@ -4,15 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <meta id="csrf-token" name="csrf-token" content="{{ csrf_token() }}" />
+    <title>Tp FullStack</title>
 
-    @vite(['resources/css/app.css'])
+    @vite(['react-front/index.css'])
 </head>
 
 <body>
     <div id="root"></div>
     @viteReactRefresh
-    @vite(['resources/js/main.tsx'])
+    @vite(['react-front/main.tsx'])
 </body>
 
 </html>

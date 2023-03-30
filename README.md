@@ -25,11 +25,10 @@ This is a simple CRUD of an entity done with a hexagonal backend and a SPA front
 
 -  Hexagonal (ports and adapter)
 
-## Information
+## Apps location
 
--   The app is located in [`resources/js/`](/resources/js/).
--   You can use [`resources/css/`](/resources/css/) for styling.
-
+-   Backend [`./modules`](/modules).
+-   Frontend [`./react-front`](/react-front).
 
 ## Deployment
 
