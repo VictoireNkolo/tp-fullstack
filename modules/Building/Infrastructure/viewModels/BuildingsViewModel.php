@@ -1,9 +1,10 @@
 <?php
 
-namespace Module\Infrastructure\Building\viewModels;
+namespace TP\Building\Infrastructure\viewModels;
 
-use Module\Application\Building\Query\All\GetAllBuildingsQueryResponse;
-use Module\Application\Building\Query\BuildingDto;
+
+use TP\Building\Application\Query\All\GetAllBuildingsQueryResponse;
+use TP\Building\Application\Query\BuildingDto;
 
 readonly class BuildingsViewModel
 {
@@ -14,12 +15,12 @@ readonly class BuildingsViewModel
 
     public function toArray(): array
     {
-        return array_map(function ($dto) {
+        return array_map(function (BuildingDto $dto) {
             return [
-                'id' => $dto->id,
-                'name' => $dto->name,
-                'address' => $dto->address,
-                'city' => $dto->city,
+                'id'          => $dto->id,
+                'name'        => $dto->name,
+                'address'     => $dto->address,
+                'city'        => $dto->city,
                 'postal_code' => $dto->postalCode
             ];
         }, $this->response->buildings);

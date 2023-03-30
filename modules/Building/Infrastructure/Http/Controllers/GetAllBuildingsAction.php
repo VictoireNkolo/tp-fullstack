@@ -1,10 +1,10 @@
 <?php
 
-namespace Module\Infrastructure\Building\Http\Controllers;
+namespace TP\Building\Infrastructure\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Module\Application\Building\Query\All\GetAllBuildingsQueryHandler;
-use Module\Infrastructure\Building\viewModels\BuildingsViewModel;
+use TP\Building\Application\Query\All\GetAllBuildingsQueryHandler;
+use TP\Building\Infrastructure\viewModels\BuildingsViewModel;
 
 class GetAllBuildingsAction
 {

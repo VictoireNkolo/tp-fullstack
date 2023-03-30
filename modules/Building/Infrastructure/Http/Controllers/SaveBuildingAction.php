@@ -1,14 +1,13 @@
 <?php
 
-namespace Module\Infrastructure\Building\Http\Controllers;
+namespace TP\Building\Infrastructure\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Module\Application\Building\Command\Save\SaveBuildingHandler;
-use Module\Domain\Building\Exceptions\NotFoundBuildingException;
-use Module\Domain\Company\Exception\NotFoundCompanyException;
-use Module\Domain\Exceptions\InvalidCommandException;
-use Module\Infrastructure\Building\Factories\BuildingCommandFactory;
-use Module\Infrastructure\Building\Http\Requests\SaveBuildingRequest;
+use TP\Building\Application\Command\Save\SaveBuildingHandler;
+use TP\Building\Domain\Exceptions\NotFoundBuildingException;
+use TP\Building\Infrastructure\Factories\BuildingCommandFactory;
+use TP\Building\Infrastructure\Http\Requests\SaveBuildingRequest;
+use TP\Shared\Exceptions\InvalidCommandException;
 
 class SaveBuildingAction
 {
@@ -26,7 +25,7 @@ class SaveBuildingAction
         $httpJson = [
             'isSaved' => false,
             'message' => '',
-            'id' => null
+            'id'      => null
         ];
 
         try {
@@ -37,9 +36,8 @@ class SaveBuildingAction
             $httpJson['id'] = $response->id;
         } catch (
             InvalidCommandException|
-            NotFoundCompanyException|
             NotFoundBuildingException|
-            \Exception $e
+        \Exception $e
         ) {
             $httpJson['message'] = $e->getMessage();
         }

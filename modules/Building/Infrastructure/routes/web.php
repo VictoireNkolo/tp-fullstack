@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Module\Infrastructure\Building\Http\Controllers\DeleteBuildingAction;
-use Module\Infrastructure\Building\Http\Controllers\GetAllBuildingsAction;
-use Module\Infrastructure\Building\Http\Controllers\GetBuildingAction;
-use Module\Infrastructure\Building\Http\Controllers\SaveBuildingAction;
+use TP\Building\Infrastructure\Http\Controllers\DeleteBuildingAction;
+use TP\Building\Infrastructure\Http\Controllers\GetAllBuildingsAction;
+use TP\Building\Infrastructure\Http\Controllers\GetBuildingAction;
+use TP\Building\Infrastructure\Http\Controllers\SaveBuildingAction;
 
 /*
 |--------------------------------------------------------------------------

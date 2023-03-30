@@ -4,7 +4,8 @@ namespace TP\Building\Infrastructure;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Module\Infrastructure\Building\Repositories\EloquentBuildingRepository;
+use TP\Building\Domain\BuildingRepository;
+use TP\Building\Infrastructure\Repositories\EloquentBuildingRepository;
 
 class BuildingServiceProvider extends ServiceProvider
 {

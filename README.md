@@ -1,56 +1,35 @@
-# Laravel 9 + Vite + React + Tailwind CSS
+# Laravel 9 + Vite + TypeScript + React + RTK + Tailwind CSS
 
-This starter template includes:
+## Project Info
+
+This is a simple CRUD of an entity done with a hexagonal backend and a SPA frontend
+
+## Stack
 
 -   Laravel 9
 -   Vite
 -   React
+-   React Tools Kit
 -   Tailwind CSS (w/ `@tailwindcss/forms`)
--   Axios
+-   Fetch
 -   TypeScript
+-   Yup (vor validations)
+
+## Backend Architecture and Development Driven
+
+-  Hexagonal (ports and adapter)
+-  DDD
+-  TDD
+
+## Frontend Architecture and Development Driven
+
+-  Hexagonal (ports and adapter)
 
 ## Information
 
 -   The app is located in [`resources/js/`](/resources/js/).
 -   You can use [`resources/css/`](/resources/css/) for styling.
 
-## Installation
-
-Install the composer dependencies:
-
-```bash
-composer install
-```
-
-Make a copy of the `.env.example` file named `.env`:
-
-```bash
-cp .env.example .env
-```
-
-Generate an app key:
-
-```bash
-php artisan key:generate
-```
-
-Install all `package.json` dependencies:
-
-```bash
-npm install
-```
-
-Run vite to serve your assets/bundle:
-
-```bash
-npm run dev
-```
-
-Open a new terminal instance and serve the application:
-
-```bash
-php artisan serve
-```
 
 ## Deployment
 
@@ -60,4 +39,4 @@ Build the app:
 npm run build
 ```
 
-Now all you have to do is serve the Laravel app in a production environment.
+

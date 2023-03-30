@@ -1,8 +1,9 @@
 <?php
 
-namespace Module\Infrastructure\Building\viewModels;
+namespace TP\Building\Infrastructure\viewModels;
 
-use Module\Application\Building\Query\Get\GetBuildingQueryResponse;
+
+use TP\Building\Application\Query\Get\GetBuildingQueryResponse;
 
 readonly class BuildingViewModel
 {
@@ -14,10 +15,10 @@ readonly class BuildingViewModel
     public function toArray(): array
     {
         return [
-            'id' => $this->response->building->id,
-            'name' => $this->response->building->name,
-            'address' => $this->response->building->address,
-            'city' => $this->response->building->city,
+            'id'          => $this->response->building->id,
+            'name'        => $this->response->building->name,
+            'address'     => $this->response->building->address,
+            'city'        => $this->response->building->city,
             'postal_code' => $this->response->building->postalCode
         ];
     }

@@ -1,10 +1,11 @@
 <?php
 
-namespace Module\Infrastructure\Building\Factories;
+namespace TP\Building\Infrastructure\Factories;
 
-use Module\Application\Building\Command\Save\SaveBuildingCommand;
-use Module\Domain\Exceptions\InvalidCommandException;
-use Module\Infrastructure\Building\Http\Requests\SaveBuildingRequest;
+
+use TP\Building\Application\Command\Save\SaveBuildingCommand;
+use TP\Building\Infrastructure\Http\Requests\SaveBuildingRequest;
+use TP\Shared\Exceptions\InvalidCommandException;
 
 class BuildingCommandFactory
 {
@@ -17,7 +18,6 @@ class BuildingCommandFactory
     ): SaveBuildingCommand
     {
         return new SaveBuildingCommand(
-            $request->get('company_id'),
             $request->get('name'),
             $request->get('address'),
             $request->get('postal_code'),

@@ -1,11 +1,11 @@
 <?php
 
-namespace Module\Infrastructure\Building\Http\Controllers;
+namespace TP\Building\Infrastructure\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Module\Application\Building\Command\Delete\DeleteBuildingHandler;
-use Module\Domain\Building\Exceptions\NotFoundBuildingException;
+use TP\Building\Application\Command\Delete\DeleteBuildingHandler;
+use TP\Building\Domain\Exceptions\NotFoundBuildingException;
 
 class DeleteBuildingAction
 {
