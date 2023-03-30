@@ -14,13 +14,12 @@ class BuildingFactory extends Factory
     {
         return [
             'uuid' => $this->faker->uuid,
+            'name' => $this->faker->name,
             'address' => $this->faker->address,
             'postal_code' => $this->faker->postcode,
             'city' => $this->faker->city,
-            'is_active' => true,
-            'name' => $this->faker->name,
             'type' => $this->faker->randomElement(['Maison', 'Appartement', 'Parking']),
-            'description' => $this->faker->text(500)
+            'description' => $this->faker->text(150)
         ];
     }
 }

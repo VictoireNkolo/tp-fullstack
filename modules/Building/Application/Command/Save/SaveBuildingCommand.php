@@ -16,6 +16,8 @@ readonly class SaveBuildingCommand
         private string $address,
         private string $postalCode,
         private string $city,
+        private string $type,
+        private ?string $description,
         private ?string $id,
     )
     {
@@ -52,6 +54,22 @@ readonly class SaveBuildingCommand
     public function city(): string
     {
         return $this->city;
+    }
+
+    /**
+     * @return string
+     */
+    public function type(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function description(): ?string
+    {
+        return $this->description;
     }
 
     /**

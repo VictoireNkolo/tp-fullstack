@@ -1,6 +1,6 @@
 <?php
 
-namespace TP\Building\Infrastructure;
+namespace TP\Building\Infrastructure\Provider;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -20,22 +20,22 @@ class BuildingServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerRoutes();
-        $this->loadMigrationsFrom(base_path('/modules/Infrastructure/Building/database/migrations'));
+        $this->loadMigrationsFrom(base_path('/modules/Building/Infrastructure/database/migrations'));
         $this->app->singleton(BuildingRepository::class, EloquentBuildingRepository::class);
     }
 
     protected function registerRoutes(): void
     {
         Route::group($this->routeConfig(), function () {
-            $this->loadRoutesFrom(base_path('/modules/Infrastructure/Building/routes/web.php'));
+            $this->loadRoutesFrom(base_path('/modules/Building/Infrastructure/routes/web.php'));
         });
     }
 
     protected function routeConfig(): array
     {
         return [
-            'prefix' => 'app',
-            'middleware' => ['web', 'auth'],
+            'prefix' => 'tp',
+            'middleware' => ['web'],
         ];
     }
 }

@@ -12,6 +12,8 @@ class BuildingCommandBuilder
     private string $address = 'Rue 1465, Etoug-Ebe, Yaoundé';
     private string $postalCode = '01234';
     private string $city = 'Yaoundé';
+    private string $type = 'Appartement';
+    private ?string $description = null;
     private ?string $id = null;
 
     public static function asBuilder(): self
@@ -29,6 +31,8 @@ class BuildingCommandBuilder
             $this->address,
             $this->postalCode,
             $this->city,
+            $this->type,
+            $this->description,
             $this->id
         );
     }

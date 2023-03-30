@@ -3,10 +3,12 @@
 namespace TP\Building\Application\Query\All;
 
 
+use TP\Shared\Lib\Database\PdoConnection;
+
 final readonly class GetAllBuildingsQueryHandler
 {
 
-    public function __construct(private PdoConnexion $connection)
+    public function __construct(private PdoConnection $connection)
     {
     }
 

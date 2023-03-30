@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use TP\Building\Domain\BuildingEventState;
 use TP\Building\Domain\Exceptions\ErrorOnSaveBuildingException;
+use TP\Building\Domain\VO\BuildingType;
 use TP\Building\Infrastructure\Models\Building;
 use TP\Building\Infrastructure\Repositories\EloquentBuildingRepository;
 use TP\Shared\VO\Address;
@@ -28,11 +29,11 @@ class BuildingRepositoryTest extends TestCase
 
     public function test_can_get_building_by_id()
     {
-        $building = Building::factory()->create();
+        $dbBuilding = Building::factory()->create();
 
-        $eBuilding = $this->buildingRepository->byId(new Id($building->uuid));
+        $building = $this->buildingRepository->byId(new Id($dbBuilding->uuid));
 
-        $this->assertEquals($building->uuid, $eBuilding->id()->value());
+        $this->assertEquals($dbBuilding->uuid, $building->id()->value());
     }
 
     /**
@@ -45,6 +46,8 @@ class BuildingRepositoryTest extends TestCase
             new Address('Biyem-Assi, Yaoundé'),
             new PostalCode('12345'),
             new City('Yaoundé'),
+            new BuildingType('Maison'),
+            null,
             null
         );
         $building->defineBuildingEventState(BuildingEventState::onSave);

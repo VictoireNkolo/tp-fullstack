@@ -11,6 +11,7 @@ use TP\Building\Application\Command\Save\SaveBuildingResponse;
 use TP\Building\Application\Services\GetBuildingByIdService;
 use TP\Building\Domain\Building;
 use TP\Building\Domain\Exceptions\NotFoundBuildingException;
+use TP\Building\Domain\VO\BuildingType;
 use TP\Shared\Exceptions\InvalidCommandException;
 use TP\Shared\VO\Address;
 use TP\Shared\VO\City;
@@ -105,6 +106,8 @@ class BuildingTest extends TestCase
             new Address('Biyem-Assi, Yaoundé'),
             new PostalCode('12345'),
             new City('Yaoundé'),
+            new BuildingType('Maison'),
+            null,
             new Id()
         );
         $this->buildingRepository->buildings[] = $building;

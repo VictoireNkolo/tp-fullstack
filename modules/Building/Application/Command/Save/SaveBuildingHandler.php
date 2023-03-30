@@ -9,11 +9,13 @@ use TP\Building\Domain\BuildingEventState;
 use TP\Building\Domain\BuildingRepository;
 use TP\Building\Domain\Exceptions\ErrorOnSaveBuildingException;
 use TP\Building\Domain\Exceptions\NotFoundBuildingException;
+use TP\Building\Domain\VO\BuildingType;
 use TP\Shared\VO\Address;
 use TP\Shared\VO\City;
 use TP\Shared\VO\Id;
 use TP\Shared\VO\Name;
 use TP\Shared\VO\PostalCode;
+use TP\Shared\VO\StringValue;
 
 final readonly class SaveBuildingHandler
 {
@@ -37,6 +39,8 @@ final readonly class SaveBuildingHandler
         $address = new Address($command->address());
         $postalCode = new PostalCode($command->postalCode());
         $city = new City($command->city());
+        $type = new BuildingType($command->type());
+        $description = $command->description() ? new StringValue($command->description()): null;
         $id = $command->id() ? new Id($command->id()) : null;
 
         $this->checkIfBuildingExistOrThrowNotFoundException($id);
@@ -46,6 +50,8 @@ final readonly class SaveBuildingHandler
             $address,
             $postalCode,
             $city,
+            $type,
+            $description,
             $id
         );
 

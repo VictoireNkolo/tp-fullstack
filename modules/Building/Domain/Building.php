@@ -3,11 +3,13 @@
 namespace TP\Building\Domain;
 
 
+use TP\Building\Domain\VO\BuildingType;
 use TP\Shared\VO\Address;
 use TP\Shared\VO\City;
 use TP\Shared\VO\Id;
 use TP\Shared\VO\Name;
 use TP\Shared\VO\PostalCode;
+use TP\Shared\VO\StringValue;
 
 final class Building
 {
@@ -20,13 +22,17 @@ final class Building
      * @param Address $address
      * @param PostalCode $postalCode
      * @param City $city
+     * @param BuildingType $type
+     * @param StringValue|null $description
      */
     private function __construct(
-        private Id         $id,
-        private Name       $name,
-        private Address    $address,
-        private PostalCode $postalCode,
-        private City       $city
+        private Id           $id,
+        private Name         $name,
+        private Address      $address,
+        private PostalCode   $postalCode,
+        private City         $city,
+        private BuildingType $type,
+        private ?StringValue $description
     )
     {
     }
@@ -40,11 +46,13 @@ final class Building
      * @return self
      */
     public static function create(
-        Name       $name,
-        Address    $address,
-        PostalCode $postalCode,
-        City       $city,
-        ?Id        $id
+        Name         $name,
+        Address      $address,
+        PostalCode   $postalCode,
+        City         $city,
+        BuildingType $type,
+        ?StringValue $description,
+        ?Id          $id
     ): self
     {
         return new self(
@@ -52,7 +60,9 @@ final class Building
             $name,
             $address,
             $postalCode,
-            $city
+            $city,
+            $type,
+            $description
         );
     }
 
@@ -106,14 +116,32 @@ final class Building
         return $this->city;
     }
 
+    /**
+     * @return BuildingType
+     */
+    public function type(): BuildingType
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return StringValue|null
+     */
+    public function description(): ?StringValue
+    {
+        return $this->description;
+    }
+
     public function toArray(): array
     {
-        $data =  [
-            'uuid' => $this->id->value(),
-            'name' => $this->name->value(),
-            'city' => $this->city->value(),
+        $data = [
+            'uuid'        => $this->id->value(),
+            'name'        => $this->name->value(),
+            'address'     => $this->address->value(),
             'postal_code' => $this->postalCode->value(),
-            'address_line1' => $this->address->value()
+            'city'        => $this->city->value(),
+            'type'        => $this->type->value(),
+            'description' => $this->description?->value()
         ];
 
         if ($this->buildingEventState === BuildingEventState::onDelete) {

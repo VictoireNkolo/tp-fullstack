@@ -2,7 +2,7 @@
 
 namespace TP\Shared\Lib\Database;
 
-interface PdoConnexion
+interface PdoConnection
 {
     public function getPdo(): \PDO;
 }
