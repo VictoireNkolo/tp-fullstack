@@ -9,4 +9,6 @@ class BuildingDto
     public string $address;
     public string $city;
     public string $postalCode;
+    public string $type;
+    public ?string $description;
 }

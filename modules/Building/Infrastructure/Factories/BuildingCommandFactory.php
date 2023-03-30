@@ -22,6 +22,8 @@ class BuildingCommandFactory
             $request->get('address'),
             $request->get('postal_code'),
             $request->get('city'),
+            $request->get('type'),
+            $request->get('description'),
             $request->get('id')
         );
     }

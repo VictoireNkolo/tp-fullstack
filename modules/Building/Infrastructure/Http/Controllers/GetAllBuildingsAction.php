@@ -10,21 +10,16 @@ class GetAllBuildingsAction
 {
 
     /**
-     * @param string $companyId
      * @param GetAllBuildingsQueryHandler $queryHandler
      * @return JsonResponse
      */
     public function __invoke(
-        string                      $companyId,
         GetAllBuildingsQueryHandler $queryHandler
     ): JsonResponse
     {
         $httpJson = ['status' => false, 'buildings' => []];
-        if (!$companyId) {
-            return response()->json($httpJson);
-        }
 
-        $response = $queryHandler->handle($companyId);
+        $response = $queryHandler->handle();
         if (!$response->buildings) {
             return response()->json($httpJson);
         }

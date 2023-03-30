@@ -3,6 +3,8 @@
 namespace TP\Building\Application\Query\All;
 
 
+use TP\Building\Application\Query\BuildingDto;
+
 class GetAllBuildingsQueryResponse
 {
     /**

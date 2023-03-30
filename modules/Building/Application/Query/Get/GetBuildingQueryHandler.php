@@ -3,6 +3,7 @@
 namespace TP\Building\Application\Query\Get;
 
 
+use TP\Building\Application\Query\BuildingDto;
 use TP\Shared\Lib\Database\PdoConnection;
 
 final readonly class GetBuildingQueryHandler
@@ -23,9 +24,11 @@ final readonly class GetBuildingQueryHandler
             SELECT
                    uuid as id,
                    name,
-                   address_line1 as address,
+                   address,
                    postal_code as postalCode,
-                   city
+                   city,
+                   type,
+                   description
             FROM buildings
             WHERE is_deleted = false AND
                   uuid = ?
@@ -49,6 +52,8 @@ final readonly class GetBuildingQueryHandler
         $building->address = $result->address;
         $building->postalCode = $result->postalCode;
         $building->city = $result->city;
+        $building->type = $result->type;
+        $building->description = $result->description;
 
         return $building;
     }

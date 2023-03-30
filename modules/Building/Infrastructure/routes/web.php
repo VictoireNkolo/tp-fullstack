@@ -20,5 +20,5 @@ use TP\Building\Infrastructure\Http\Controllers\SaveBuildingAction;
 Route::post('/building/save', SaveBuildingAction::class);
 Route::post('/building/delete', DeleteBuildingAction::class);
 
-Route::get('/buildings/{companyId}', GetAllBuildingsAction::class);
+Route::get('/buildings', GetAllBuildingsAction::class);
 Route::get('/building/{id}', GetBuildingAction::class);

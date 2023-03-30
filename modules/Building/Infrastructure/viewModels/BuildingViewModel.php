@@ -19,7 +19,9 @@ readonly class BuildingViewModel
             'name'        => $this->response->building->name,
             'address'     => $this->response->building->address,
             'city'        => $this->response->building->city,
-            'postal_code' => $this->response->building->postalCode
+            'postal_code' => $this->response->building->postalCode,
+            'type'        => $this->response->building->type,
+            'description' => $this->response->building->description
         ];
     }
 }

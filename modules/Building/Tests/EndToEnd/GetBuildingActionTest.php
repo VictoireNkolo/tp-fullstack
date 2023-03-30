@@ -1,12 +1,10 @@
 <?php
 
-namespace Building;
+namespace TP\Building\Tests\EndToEnd;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Module\Infrastructure\Building\Models\Building;
-use Module\Infrastructure\Company\Models\Company;
-use Module\Infrastructure\User\Models\User;
 use Tests\TestCase;
+use TP\Building\Infrastructure\Models\Building;
 
 class GetBuildingActionTest extends TestCase
 {
@@ -19,17 +17,9 @@ class GetBuildingActionTest extends TestCase
 
     public function test_can_get_a_building()
     {
-        $user = User::factory()->create();
-        $eCompany = Company::factory()->create();
-        $eBuilding = Building::factory()->create(
-            [
-                'company_uuid' => $eCompany->uuid,
-                'is_active' => true,
-                'is_deleted' => false
-            ]
-        );
+        $eBuilding = Building::factory()->create(['is_deleted' => false]);
 
-        $response = $this->actingAs($user)->get('/app/building/' . $eBuilding->uuid);
+        $response = $this->get('/tp/building/' . $eBuilding->uuid);
 
         $response->assertStatus(200);
         $this->assertTrue($response['status']);

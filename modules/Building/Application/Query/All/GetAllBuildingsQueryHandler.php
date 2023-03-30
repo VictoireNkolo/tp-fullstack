@@ -3,6 +3,7 @@
 namespace TP\Building\Application\Query\All;
 
 
+use TP\Building\Application\Query\BuildingDto;
 use TP\Shared\Lib\Database\PdoConnection;
 
 final readonly class GetAllBuildingsQueryHandler
@@ -13,29 +14,29 @@ final readonly class GetAllBuildingsQueryHandler
     }
 
     /**
-     * @param string $companyId
      * @return GetAllBuildingsQueryResponse
      */
-    public function handle(string $companyId): GetAllBuildingsQueryResponse
+    public function handle(): GetAllBuildingsQueryResponse
     {
         $response = new GetAllBuildingsQueryResponse();
         $sql = "
             SELECT
                 uuid as id,
                 name,
-                address_line1 as address,
+                address,
                 postal_code as postalCode,
-                city
+                city,
+                type,
+                description
             FROM buildings
             WHERE
-                is_deleted = false AND
-                company_uuid = :uuid
+                is_deleted = false
         ";
-        $st = $this->connection->getPdo()->prepare($sql);
-        $st->bindParam('uuid', $companyId);
-        $st->setFetchMode(\PDO::FETCH_CLASS, BuildingDto::class);
-        $st->execute();
-        $response->buildings = $st->fetchAll();
+        $response->buildings = $this->connection->getPdo()->query(
+            "$sql",
+            \PDO::FETCH_CLASS,
+            BuildingDto::class
+        )->fetchAll();
 
         return $response;
     }

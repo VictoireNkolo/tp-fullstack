@@ -21,7 +21,9 @@ readonly class BuildingsViewModel
                 'name'        => $dto->name,
                 'address'     => $dto->address,
                 'city'        => $dto->city,
-                'postal_code' => $dto->postalCode
+                'postal_code' => $dto->postalCode,
+                'type'        => $dto->type,
+                'description' => $dto->description
             ];
         }, $this->response->buildings);
     }
